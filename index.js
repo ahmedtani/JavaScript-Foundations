@@ -175,26 +175,11 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-var InterestRate=[0.02, 0.025, 0.03,0.035, 0.04 ,0.045,0.05, 0.055,0.06];
-for (i = 0; i <InterestRate.length; i++) {
-    function variableInterestRate(principal, interest_rate,  years, name){
-        var monthlyInterestRate = interest_rate/12;
-        var periods=years*12;
-        var n1=Math.pow((1 + monthlyInterestRate ), periods);
-        var n2 = n1 * monthlyInterestRate;
-        var numerator = n1 * monthlyInterestRate ;
-        var denominator = n1 - 1 ;
-        var monthlyRate =principal*(numerator/denominator);
-        return name +", Your montly rate is" + monthlyRate
 
 
 
-}
-    variableInterestRate(200000,InterestRate[i],30,'Amear');}
 
-
-var name2 ="Amear" 
-function variableInterestRate2(principal, interest_rate,  years){
+function variableInterestRate2(principal, interest_rate,  years, name){
         let min = interest_rate-0.02;
         let max = interest_rate+0.02;
         for(var i = min; i<max; i=i+0.005){
@@ -206,12 +191,12 @@ function variableInterestRate2(principal, interest_rate,  years){
             var denominator = n1 - 1 ;
             var monthlyRate =principal*(numerator/denominator);
            // return name2 +", Your montly rate is" + monthlyRate;
-            var message = name2 +", Your montly rate is" + monthlyRate;
-            console.log(message);
+            var results = name2 +", Your montly rate is" + monthlyRate;
+            console.log(results);
 }
 
 }
-variableInterestRate2(200000,0.05,30);
+variableInterestRate2(200000,0.05,30,'Amear');
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
