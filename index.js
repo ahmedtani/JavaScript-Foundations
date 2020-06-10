@@ -77,13 +77,13 @@ function mortgageCalculator(principal, interest_rate,  years, name,creditScore){
     return name +", Your montly rate is" + monthlyRate
 
 }
-var principal  = prompt("Enter house price");
-var interest_rate  = prompt("Enter your intrest rate");
-var years=prompt("Enter number of years");
-var years=prompt("Now Your Credit Score");
-var name=prompt("And lastly your name, please");
-let results = mortgageCalculator(principal,interest_rate,years,name,creditScore);
-alert(results);
+var principal1  = prompt("Enter house price");
+var interest_rate1  = prompt("Enter your intrest rate");
+var years1=prompt("Enter number of years");
+var creditScore1=prompt("Now Your Credit Score");
+var name1=prompt("And lastly your name, please");
+let results1 = mortgageCalculator(principal1,interest_rate1,years1,name1,creditScore1);
+alert(results1);
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -146,13 +146,13 @@ function mortgageCalculator(principal, interest_rate,  years, name,creditScore){
     return name +", Your montly rate is" + monthlyRate
 
 }
-var principal  = prompt("Enter house price");
-var interest_rate  = prompt("Enter your intrest rate");
-var years=prompt("Enter number of years");
-var creditScore=prompt("Now Your Credit Score");
-var name=prompt("And lastly your name, please");
-let results = mortgageCalculator(principal,interest_rate,years,name,creditScore);
-alert(results);
+var principal2  = prompt("Enter house price");
+var interest_rate2  = prompt("Enter your intrest rate");
+var years2=prompt("Enter number of years");
+var creditScore2=prompt("Now Your Credit Score");
+var name2=prompt("And lastly your name, please");
+let results2 = mortgageCalculator(principal2,interest_rate2,years2,name2,creditScore2);
+alert(results2);
 
 
 
@@ -175,22 +175,43 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+var InterestRate=[0.02, 0.025, 0.03,0.035, 0.04 ,0.045,0.05, 0.055,0.06];
+for (i = 0; i <InterestRate.length; i++) {
+    function variableInterestRate(principal, interest_rate,  years, name){
+        var monthlyInterestRate = interest_rate/12;
+        var periods=years*12;
+        var n1=Math.pow((1 + monthlyInterestRate ), periods);
+        var n2 = n1 * monthlyInterestRate;
+        var numerator = n1 * monthlyInterestRate ;
+        var denominator = n1 - 1 ;
+        var monthlyRate =principal*(numerator/denominator);
+        return name +", Your montly rate is" + monthlyRate
 
-function variableInterestRate(principal, interest_rate,  years, name){
-    var monthlyInterestRate = interest_rate/12;
-    var periods=years*12;
-    var n1=Math.pow((1 + monthlyInterestRate ), periods);
-    var n2 = n1 * monthlyInterestRate;
-    var numerator = n1 * monthlyInterestRate ;
-    var denominator = n1 - 1 ;
-    var monthlyRate =principal*(numerator/denominator);
-    return name +", Your montly rate is" + monthlyRate
+
 
 }
+    variableInterestRate(200000,InterestRate[i],30,'Amear');}
 
-for (i = 0.020; i < 0.060; i+= 0.005) {
-    variableInterestRate(200000,i,30,'Amear');}
 
+var name2 ="Amear" 
+function variableInterestRate2(principal, interest_rate,  years){
+        let min = interest_rate-0.02;
+        let max = interest_rate+0.02;
+        for(var i = min; i<max; i=i+0.005){
+            var monthlyInterestRate = i/12
+            var periods=years*12;
+            var n1=Math.pow((1 + monthlyInterestRate ), periods);
+            var n2 = n1 * monthlyInterestRate;
+            var numerator = n1 * monthlyInterestRate ;
+            var denominator = n1 - 1 ;
+            var monthlyRate =principal*(numerator/denominator);
+           // return name2 +", Your montly rate is" + monthlyRate;
+            var message = name2 +", Your montly rate is" + monthlyRate;
+            console.log(message);
+}
+
+}
+variableInterestRate2(200000,0.05,30);
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
